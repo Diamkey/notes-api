@@ -1,1 +1,6 @@
-<Solution />
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="Domain/Domain.csproj" />
+  </Folder>
+  <Folder Name="/tests/" />
+</Solution>
