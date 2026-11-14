@@ -5,5 +5,7 @@
     <Project Path="Domain/Domain.csproj" />
     <Project Path="Infrastructure/Infrastructure.csproj" />
   </Folder>
-  <Folder Name="/tests/" />
+  <Folder Name="/tests/">
+    <Project Path="UnitTests/UnitTests.csproj" />
+  </Folder>
 </Solution>
