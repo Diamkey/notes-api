@@ -5,10 +5,10 @@ using MediatR;
 
 namespace Application.Features.Notes.Commands;
 
-public record AddNoteRequest(string Content)
+public sealed record AddNoteRequest(string Content)
     : IRequest;
     
-internal sealed class AddNoteRequestHandler(INoteRepository repository, IMapper mapper)
+public sealed class AddNoteRequestHandler(INoteRepository repository, IMapper mapper)
     : IRequestHandler<AddNoteRequest>
 {
     public async Task Handle(AddNoteRequest request, CancellationToken cancellationToken)
