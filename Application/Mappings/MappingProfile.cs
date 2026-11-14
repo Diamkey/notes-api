@@ -9,9 +9,8 @@ public class MappingProfile : Profile
     public MappingProfile()
     {
         CreateMap<Note, NoteDto>()
-            .ForMember(noteDto => noteDto.CreatedAt, 
-                opt => 
-                    opt.MapFrom(note => 
-                        note.CreatedAt.LocalDateTime.ToString("yyyy-MM-dd HH:mm")));
+            .ForCtorParam(nameof(NoteDto.CreatedAt), opt => 
+                opt.MapFrom(src => 
+                    src.CreatedAt.ToLocalTime().ToString("yyyy-MM-dd HH:mm")));
     }
 }
