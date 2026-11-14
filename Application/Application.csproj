@@ -14,5 +14,9 @@
       <PackageReference Include="AutoMapper" Version="17.0.0" />
       <PackageReference Include="MediatR" Version="15.0.0" />
     </ItemGroup>
+    
+    <ItemGroup>
+        <InternalsVisibleTo Include="..\UnitTests.csproj" />
+    </ItemGroup>
 
 </Project>

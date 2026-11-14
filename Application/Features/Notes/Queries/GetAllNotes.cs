@@ -8,7 +8,7 @@ namespace Application.Features.Notes.Queries;
 public record GetAllNotesRequest 
     : IRequest<IReadOnlyList<NoteDto>>;
     
-public sealed class GetAllNotesRequestHandler(INoteRepository repository, IMapper mapper)
+internal sealed class GetAllNotesRequestHandler(INoteRepository repository, IMapper mapper)
     :  IRequestHandler<GetAllNotesRequest, IReadOnlyList<NoteDto>>
 {
     public async Task<IReadOnlyList<NoteDto>> Handle(GetAllNotesRequest request, 

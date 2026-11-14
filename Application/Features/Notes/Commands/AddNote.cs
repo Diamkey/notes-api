@@ -8,7 +8,7 @@ namespace Application.Features.Notes.Commands;
 public sealed record AddNoteRequest(string Content)
     : IRequest;
     
-public sealed class AddNoteRequestHandler(INoteRepository repository, IMapper mapper)
+internal sealed class AddNoteRequestHandler(INoteRepository repository, IMapper mapper)
     : IRequestHandler<AddNoteRequest>
 {
     public async Task Handle(AddNoteRequest request, CancellationToken cancellationToken)
