@@ -36,25 +36,12 @@ public class NoteTests
             note.Content.Should().Be("Test note content");
         }
 
-        [Fact]
-        public void Create_WithEmptyContent_ShouldThrowNoteContentEmptyException()
+        [Theory]
+        [InlineData("")]
+        [InlineData("   ")]
+        public void Create_WithEmptyOrWhitespaceContent_ShouldThrowNoteContentEmptyException(string content)
         {
             // Arrange
-            var content = string.Empty;
-            
-            // Act
-            var act = () => Note.Create(content);
-            
-            // Assert
-            act.Should().Throw<NoteContentEmptyException>();
-        }
-
-        [Fact]
-        public void Create_WithWhitespaceOnlyContent_ShouldThrowNoteContentEmptyeException()
-        {
-            // Arrange
-            var content = "   ";
-            
             // Act
             var act = () => Note.Create(content);
             
