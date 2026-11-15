@@ -13,14 +13,12 @@ namespace UnitTests.Application.Features.Notes.Commands;
 public sealed class AddNoteTests
 {
     private readonly INoteRepository repositoryMock;
-    private readonly IMapper mapper;
     private readonly AddNoteRequestHandler handler;
 
     public AddNoteTests()
     {
         repositoryMock = Substitute.For<INoteRepository>();
-        mapper = MapperFactory.Create();
-        handler = new AddNoteRequestHandler(repositoryMock, mapper);
+        handler = new AddNoteRequestHandler(repositoryMock);
     }
 
     [Fact]
