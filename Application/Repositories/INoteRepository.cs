@@ -7,4 +7,5 @@ public interface INoteRepository
     Task<IReadOnlyList<Note>> GetAllNotesAsync();
     Task<Note?> GetNoteByIdAsync(Guid id);
     Task AddNoteAsync(Note note);
+    Task DeleteNoteAsync(Note note);
 }

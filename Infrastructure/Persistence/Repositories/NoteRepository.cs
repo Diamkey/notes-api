@@ -24,4 +24,10 @@ public class NoteRepository(ApplicationDbContext context)
         context.Notes.Add(note);
         await context.SaveChangesAsync();
     }
+
+    public async Task DeleteNoteAsync(Note note)
+    {
+        context.Notes.Remove(note);
+        await context.SaveChangesAsync();
+    }
 }

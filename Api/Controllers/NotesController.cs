@@ -22,4 +22,11 @@ public class NotesController(IMediator mediator) : ControllerBase
         await mediator.Send(request);
         return Ok();
     }
+
+    [HttpDelete]
+    public async Task<IActionResult> DeleteNote([FromBody] DeleteNoteRequest request)
+    {
+        await mediator.Send(request);
+        return NoContent();
+    }
 }
