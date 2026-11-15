@@ -14,7 +14,7 @@ internal sealed class DeleteNoteRequestHandler(INoteRepository repository)
     {
         var note = await repository.GetNoteByIdAsync(request.Id);
         if (note is null)
-            throw new NotFoundException($"Note with id={request.Id}");
+            throw new NoteByIdNotFoundException(request.Id);
         
         await repository.DeleteNoteAsync(note);
     }

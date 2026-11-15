@@ -36,7 +36,7 @@ public class DeleteNoteTests
     }
 
     [Fact]
-    public async Task Handle_WithInvalidId_ShouldThrowNotFoundException()
+    public async Task Handle_WithInvalidId_ShouldThrowNoteByIdNotFoundException()
     {
         // Arrange
         var id = Guid.NewGuid();
@@ -47,6 +47,6 @@ public class DeleteNoteTests
         var act = async () => await handler.Handle(request, CancellationToken.None);
         
         // Assert
-        await act.Should().ThrowAsync<NotFoundException>();
+        await act.Should().ThrowAsync<NoteByIdNotFoundException>();
     }
 }
