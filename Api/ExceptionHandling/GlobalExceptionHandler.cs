@@ -1,4 +1,5 @@
-﻿using Domain.Exceptions;
+﻿using Application.Exceptions;
+using Domain.Exceptions;
 using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 
@@ -14,6 +15,7 @@ internal sealed class GlobalExceptionHandler : IExceptionHandler
         var (title, statusCode) = exception switch
         {
             DomainException => ("Domain validation exception.", StatusCodes.Status400BadRequest),
+            NotFoundException => ("Not found.", StatusCodes.Status404NotFound),
             _ => ("An error occured.", StatusCodes.Status500InternalServerError)
         };
 
