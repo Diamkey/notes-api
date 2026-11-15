@@ -12,11 +12,13 @@ public class Note
         Id = id;
         Content = content;
         CreatedAt = createdAt;
+        UpdatedAt = null;
     }
     
     public Guid Id { get; private set; }
     public string Content { get; private set; }
     public DateTimeOffset CreatedAt { get; private set; }
+    public DateTimeOffset? UpdatedAt { get; private set; }
 
     public static Note Create(string content, TimeProvider? timeProvider = null)
     {
