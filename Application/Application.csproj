@@ -15,8 +15,8 @@
       <PackageReference Include="MediatR" Version="15.0.0" />
     </ItemGroup>
     
-    <ItemGroup>
-        <InternalsVisibleTo Include="..\UnitTests.csproj" />
-    </ItemGroup>
+        <ItemGroup>
+            <InternalsVisibleTo Include="UnitTests" />
+        </ItemGroup>
 
 </Project>
