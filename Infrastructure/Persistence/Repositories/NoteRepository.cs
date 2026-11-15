@@ -24,4 +24,10 @@ public class NoteRepository(ApplicationDbContext context)
         context.Notes.Add(note);
         await context.SaveChangesAsync();
     }
+
+    public async Task UpdateNoteAsync(Note note)
+    {
+        context.Notes.Update(note);
+        await context.SaveChangesAsync();
+    }
 }

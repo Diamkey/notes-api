@@ -1,4 +1,5 @@
-﻿using Domain.Exceptions;
+﻿using System.Data;
+using Domain.Exceptions;
 
 namespace Domain.Entities;
 
@@ -31,5 +32,17 @@ public class Note
         DateTimeOffset createdAt = timeProvider?.GetUtcNow() ?? DateTimeOffset.UtcNow;
 
         return new Note(id, content, createdAt);
+    }
+
+    public void Update(string content, TimeProvider? timeProvider = null)
+    {
+        content = content.Trim();
+        if (content == string.Empty)
+            throw new NoteContentEmptyException();
+        
+        DateTimeOffset updatedAt = timeProvider?.GetUtcNow() ?? DateTimeOffset.UtcNow;
+
+        Content = content;
+        UpdatedAt = updatedAt;
     }
 }

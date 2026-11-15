@@ -22,4 +22,11 @@ public class NotesController(IMediator mediator) : ControllerBase
         await mediator.Send(request);
         return Ok();
     }
+
+    [HttpPut]
+    public async Task<IActionResult> UpdateNote([FromBody] UpdateNoteRequest request)
+    {
+        await mediator.Send(request);
+        return NoContent();
+    }
 }
